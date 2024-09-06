@@ -6,7 +6,7 @@ import "../globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Vreal Authenticator",
+  title: "Vreal Authentication",
   description: "Authenticating the media.",
 };
 

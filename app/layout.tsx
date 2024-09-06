@@ -6,8 +6,8 @@ import './globals.css'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "V-Real Auth",
-  description: "Authenticating the media you are seeing",
+  title: "Vreal | Authentication",
+  description: "Authenticating the media.",
 };
 
 export default function RootLayout({

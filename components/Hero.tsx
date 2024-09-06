@@ -5,17 +5,12 @@ import { useRouter } from 'next/navigation';
 import { Label } from "./ui/label";  // Ensure correct import (named or default)
 import { Input } from "./ui/input";  // Ensure correct import (named or default)
 import { cn } from "@/lib/utils";    // Ensure correct import of utility function
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";  // Ensure these icons exist
 import Image from "next/image";
-import { BackgroundBeams } from "./ui/background-beams";
-import { EvervaultCard } from "./ui/evervault-card";
-import { Meteors } from "./ui/meteors";
+import { GlobeDemo } from "./HeroTwo";
+
 
 export function Hero() {
+  
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [message, setMessage] = useState<string | null>(null);
@@ -68,11 +63,12 @@ export function Hero() {
 
   return (
  
-    <div className="max-w-md w-full z-40 mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input shadow bg-white dark:bg-black">
+    <div className="max-w-md w-full z-50  rounded-2xl md:rounded-2xl p-4 md:p-8 shadow-input shadow bg-white dark:bg-black">
       <nav><Image src={`/VREAL(2).png`} alt="logo" height={1000} width={1000} /></nav>
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         {isLogin ? "Login to Vreal" : "Register for Vreal"}
       </h2>
+   
       
       <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
         {isLogin
@@ -135,6 +131,7 @@ export function Hero() {
               {isLogin ? "Sign up" : "Login"}
             </button>
           </p>
+      
         </div>
       </form>
     </div>
