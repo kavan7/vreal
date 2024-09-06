@@ -7,24 +7,14 @@ import { FileUpload } from '@/components/ui/file-upload';
 import { IconBriefcase, IconMan, IconPhone } from '@tabler/icons-react';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
+
 const navItems = [
   {
-    name: "Services",
+    name: "",
     id: "services",
     icon: <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
-  {
-    name: "Our Team",
-    id: "about",
-    icon: <IconMan className="h-4 w-4 text-neutral-500 dark:text-white" />,
-  },
-  {
-    name: "Contact",
-    id: "touch",
-    icon: (
-      <IconPhone className="h-4 w-4 text-neutral-500 dark:text-white" />
-    ),
-  },
+
 ];
 
 export default function Dashboard() {
@@ -34,17 +24,16 @@ export default function Dashboard() {
   const [verificationResult, setVerificationResult] = useState<string | null>(null);
   const [signerUsername, setSignerUsername] = useState<string>(''); // For verification
   const [signedMediaList, setSignedMediaList] = useState<{ file_name: string, media_hash: string, signature: string }[]>([]);
+  const [notification, setNotification] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
 
   const router = useRouter();
 
   useEffect(() => {
-    // Check if the user is logged in
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
       fetchSignedMedia(JSON.parse(storedUser).username);
     } else {
-      // If not logged in, redirect to login page
       router.push('/');
     }
   }, [router]);
@@ -57,7 +46,7 @@ export default function Dashboard() {
 
   const handleSignMedia = async () => {
     if (!mediaFile) {
-      alert('Please select a media file first.');
+      setNotification({ message: 'Please select a media file first.', type: 'error' });
       return;
     }
 
@@ -66,7 +55,7 @@ export default function Dashboard() {
     formData.append('username', user?.username || ''); // Send the username
 
     if (!user?.username) {
-      alert("Username is missing.");
+      setNotification({ message: 'Username is missing.', type: 'error' });
       return;
     }
 
@@ -77,17 +66,17 @@ export default function Dashboard() {
         },
       });
       setSignature(response.data.signature);
-      alert('Media signed successfully!');
+      setNotification({ message: 'Media signed successfully!', type: 'success' });
       fetchSignedMedia(user.username); // Refresh the signed media list after signing
     } catch (error) {
       console.error('Error signing media:', error);
-      alert('Error signing media.');
+      setNotification({ message: 'Error signing media.', type: 'error' });
     }
   };
 
   const handleVerifyMedia = async () => {
     if (!mediaFile || !signerUsername) {
-      alert('Please select a media file and enter the signer\'s username.');
+      setNotification({ message: 'Please select a media file and enter the signer\'s username.', type: 'error' });
       return;
     }
 
@@ -102,33 +91,37 @@ export default function Dashboard() {
         },
       });
       setVerificationResult(response.data.message);
-      alert(`Verification Result: ${response.data.message}`);
+      setNotification({ message: `Verification Result: ${response.data.message}`, type: 'success' });
     } catch (error) {
       console.error('Error verifying media:', error);
-      alert('Error verifying media.');
+      setNotification({ message: 'Error verifying media.', type: 'error' });
     }
   };
 
-  // Fetch all signed media for the user
   const fetchSignedMedia = async (username: string) => {
     try {
       const response = await axios.get(`https://backauth-3hg7.onrender.com/get_signed_media?username=${username}`);
       setSignedMediaList(response.data.signed_media);
     } catch (error) {
       console.error('Error fetching signed media:', error);
-      alert('Error fetching signed media.');
+      setNotification({ message: 'Error fetching signed media.', type: 'error' });
     }
   };
 
-  if (!user) {
-    return <p>Loading...</p>;
-  }
+  const NotificationModal = () => {
+    if (!notification) return null;
+
+    return (
+      <div className={`fixed top-10 right-10 bg-${notification.type === 'success' ? 'green' : 'red'}-500 text-white p-4 rounded`}>
+        {notification.message}
+      </div>
+    );
+  };
 
   return (
     <div className="bg-black text-white h-screen flex flex-col justify-center items-center">
-         <FloatingNav navItems={navItems} />
- 
-<TextGenerateEffect words='Welcome to Vreal' className='text-3xl tracking-widest uppercase'/>
+      <FloatingNav navItems={navItems} />
+      <TextGenerateEffect words='Welcome to Vreal' className='text-3xl tracking-widest uppercase' />
 
       {/* File input for selecting media */}
       <FileUpload onChange={handleFileChange} />
@@ -136,7 +129,7 @@ export default function Dashboard() {
       {/* Button to sign the media */}
       <button
         onClick={handleSignMedia}
-        className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+        className="bg-white text-black px-4 py-2 rounded mt-4"
       >
         Sign Media
       </button>
@@ -156,7 +149,7 @@ export default function Dashboard() {
         {/* Button to verify the media */}
         <button
           onClick={handleVerifyMedia}
-          className="bg-green-500 text-white px-4 py-2 rounded mt-4"
+          className="bg-white text-black px-4 py-2 rounded mt-4"
         >
           Verify Media
         </button>
@@ -177,8 +170,6 @@ export default function Dashboard() {
             {signedMediaList.map((media, index) => (
               <li key={index} className="mb-4">
                 <p><strong>File Name:</strong> {media.file_name}</p>
-            
-              
               </li>
             ))}
           </ul>
@@ -186,6 +177,9 @@ export default function Dashboard() {
           <p>No signed media found.</p>
         )}
       </div>
+
+
+      <NotificationModal />
     </div>
   );
 }
