@@ -1,20 +1,19 @@
 "use client";
 import React, { useState } from "react";
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
-import { Label } from "./ui/label";  
-import { Input } from "./ui/input";  
-import { cn } from "@/lib/utils";    
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { GlobeDemo } from "./HeroTwo";
 
 export function Hero() {
-  
-  const [username, setUsername] = useState<string>('');
-  const [email, setEmail] = useState<string>('');  
-  const [password, setPassword] = useState<string>('');
+  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");  
+  const [password, setPassword] = useState<string>("");
   const [message, setMessage] = useState<string | null>(null);
-  const [isLogin, setIsLogin] = useState<boolean>(true); 
+  const [isLogin, setIsLogin] = useState<boolean>(true);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -28,46 +27,52 @@ export function Hero() {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post('https://backauth-3hg7.onrender.com/register', {
-        username,
-        email,  
-        password,
-      });
-      if (response.data.message === 'User registered successfully, welcome email sent') {
-        localStorage.setItem('user', JSON.stringify({ username }));
-        router.push('/dashboard');
-      } else {
-        setMessage(response.data.message);
-      }
+      const response = await axios.post(
+        "https://backauth-3hg7.onrender.com/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
 
+      // Check if the status is 201 for successful registration
+      if (response.status === 201) {
+        localStorage.setItem("user", JSON.stringify({ username }));
+        router.push("/dashboard"); // Redirect to dashboard on successful registration
+      } else {
+        // If the response status is not 201, show the error message from the response
+        setMessage(response.data.message || "Error registering user.");
+      }
     } catch (error) {
-      setMessage('Error registering user.');
+      setMessage("Error registering user.");
     }
   };
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://backauth-3hg7.onrender.com/login', {
+      const response = await axios.post("https://backauth-3hg7.onrender.com/login", {
         username,
         password,
       });
 
       if (response.status === 200) {
-        
         const { token } = response.data;
-        localStorage.setItem('user', JSON.stringify({ username, token }));
-        router.push('/dashboard');
+        localStorage.setItem("user", JSON.stringify({ username, token }));
+        router.push("/dashboard");
       } else {
-        setMessage(response.data.message || 'Error logging in.');
+        setMessage(response.data.message || "Error logging in.");
       }
     } catch (error) {
-      setMessage('Error logging in.');
+      setMessage("Error logging in.");
     }
   };
 
   return (
     <div className="max-w-md  w-full z-50  rounded-2xl md:rounded-2xl p-4 md:p-8 shadow-input shadow bg-white dark:bg-black">
-      <nav><Image src={`/VREAL(2).png`} alt="logo" height={1000} width={1000} /></nav>
+      <nav>
+        <Image src={`/VREAL(2).png`} alt="logo" height={1000} width={1000} />
+      </nav>
       <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent mb-7 h-[1px] w-full" />
 
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
@@ -92,7 +97,7 @@ export function Hero() {
           />
         </LabelInputContainer>
 
-        {!isLogin && (  
+        {!isLogin && (
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -126,7 +131,11 @@ export function Hero() {
 
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
 
-        {message && <p className="uppercase tracking-wider text-[#ff3d36] font-bold mt-4">{message}</p>}
+        {message && (
+          <p className="uppercase tracking-wider text-[#ff3d36] font-bold mt-4">
+            {message}
+          </p>
+        )}
 
         <div className="mt-4">
           <p className="text-neutral-600 dark:text-neutral-300">
