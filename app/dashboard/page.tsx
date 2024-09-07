@@ -141,7 +141,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="bg-black text-white h-screen flex flex-col justify-center overflow-y-scroll items-center">
+    <div className="bg-black text-white font-sans h-screen flex flex-col justify-center overflow-y-scroll items-center">
       <FloatingNav navItems={navItems} />
       
 
@@ -156,7 +156,7 @@ export default function Dashboard() {
       </button>
 
       <div className="mt-8">
-        <h2 className="text-2xl">Verify Media</h2>
+        <h2 className="text-2xl font-sans">Verify Media</h2>
 
         <input
           type="text"
@@ -177,20 +177,20 @@ export default function Dashboard() {
     
 
       <div className="mt-8">
-  <h2 className="text-2xl">Signed Media</h2>
+  <h2 className="text-2xl font-sans">Signed Media</h2>
 
   {signedMediaList.length > 0 ? (
     <ul className="mt-4 max-h-64 overflow-y-scroll">
       {signedMediaList.map((media, index) => (
         <li key={index} className="mb-4 ">
-          <p className='flex flex-row'>
+          <p className='flex flex-row font-sans'>
             <strong><IconFile/></strong> {media.file_name}
           </p>
         </li>
       ))}
     </ul>
   ) : (
-    <p>No signed media found.</p>
+    <p className='font-sans'> You haven't signed anything.</p>
   )}
 </div>
 
