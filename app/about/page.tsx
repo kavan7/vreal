@@ -58,8 +58,7 @@ export default function Dashboard() {
 				I immediately wanted to learn more about technology and law, so
 				I enrolled in <LinkPreview url='https://learning.edx.org/course/course-v1:HarvardX+CS50L+Law/home' className='text-white'>HarvardX's "CS50 for Lawyers"</LinkPreview> where I had a change
 				to learn about cryptography. <br/>	The use of cryptography always interested me, and the cool thing
-				about it is that it will always get outdated.	The use of cryptography always interested me, and the cool thing
-				about it is that it will always get outdated.
+				about it is that it will always get outdated.	
 			</h1>
 
 		
