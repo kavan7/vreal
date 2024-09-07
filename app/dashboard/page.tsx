@@ -176,7 +176,7 @@ export default function Dashboard() {
 
     
 
-      <div className="mt-6 shadow border">
+      <div className="mt-6 shadow border-dashed">
   <h2 className="text-2xl font-sans">Signed Media</h2>
     <hr/>
   {signedMediaList.length > 0 ? (
