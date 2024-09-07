@@ -145,9 +145,9 @@ export default function Dashboard() {
       <FloatingNav navItems={navItems} />
       
 
-     
+     <div className='mt-20 border-dotted'>
       <FileUpload onChange={handleFileChange} />
-
+      </div>
       <button
         onClick={handleSignMedia}
         className="bg-white  text-black px-4 py-2 rounded mt-4"
@@ -176,11 +176,11 @@ export default function Dashboard() {
 
     
 
-      <div className="mt-8">
+      <div className="mt-6 shadow border">
   <h2 className="text-2xl font-sans">Signed Media</h2>
-
+    <hr/>
   {signedMediaList.length > 0 ? (
-    <ul className="mt-4 max-h-64 overflow-y-scroll">
+    <ul className="mt-4  mb-4 max-h-64 overflow-y-scroll">
       {signedMediaList.map((media, index) => (
         <li key={index} className="mb-4 ">
           <p className='flex flex-row font-sans'>
