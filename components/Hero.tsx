@@ -24,7 +24,7 @@ export function Hero() {
       handleRegister();
     }
   };
-
+  
   const handleRegister = async () => {
     try {
       const response = await axios.post(
@@ -35,7 +35,7 @@ export function Hero() {
           password,
         }
       );
-
+  
       // Check if the status is 201 for successful registration
       if (response.status === 201) {
         localStorage.setItem("user", JSON.stringify({ username }));
@@ -44,8 +44,18 @@ export function Hero() {
         // If the response status is not 201, show the error message from the response
         setMessage(response.data.message || "Error registering user.");
       }
-    } catch (error) {
-      setMessage("Error registering user.");
+    } catch (error: any) {
+      // Add proper error handling for axios request failures
+      if (error.response) {
+        // The server responded with a status other than 2xx
+        setMessage(error.response.data.message || "Error registering user.");
+      } else if (error.request) {
+        // The request was made but no response was received
+        setMessage("No response from server. Please try again later.");
+      } else {
+        // Something happened in setting up the request
+        setMessage("Error registering user.");
+      }
     }
   };
 
