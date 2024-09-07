@@ -137,7 +137,7 @@ export default function Dashboard() {
 
      
       <FileUpload onChange={handleFileChange} />
-<Image src={'/logonav.png'} alt='logo' height={200} width={200}/>
+
       <button
         onClick={handleSignMedia}
         className="bg-white text-black px-4 py-2 rounded mt-4"
@@ -164,11 +164,7 @@ export default function Dashboard() {
         </button>
       </div>
 
-      {verificationResult && (
-        <div className="mt-20">
-          <p>Verification Result: {verificationResult}</p>
-        </div>
-      )}
+    
 
       <div className="mt-8">
         <h2 className="text-2xl">Signed Media</h2>

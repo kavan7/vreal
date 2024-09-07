@@ -68,7 +68,7 @@ export default function Dashboard() {
         
 			</h1>
 		
-      <h1 className="   mt-5 font-lightest uppercase   tracking-wider mt-8 px-24">
+      <h1 className=" font-lightest uppercase   tracking-wider mt-8 px-24">
 				Vreal isn't just for lawyers, or for boring documents. Vreal can help you authenticate media at a time of uncertainty. 
         
 			</h1>

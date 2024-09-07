@@ -34,7 +34,7 @@ export const FileUpload = ({
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (newFiles: File[]) => {
-    setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    setFiles((prevFiles) => [...prevFiles, ...newFiles].slice(-2)); // Only keep the 2 most recent files
     onChange && onChange(newFiles);
   };
 
