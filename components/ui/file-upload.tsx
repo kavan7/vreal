@@ -52,7 +52,7 @@ export const FileUpload = ({
   });
 
   return (
-    <div className="w-full" {...getRootProps()}>
+    <div className="w-full border-dotted" {...getRootProps()}>
       <motion.div
         onClick={handleClick}
         whileHover="animate"
@@ -91,7 +91,7 @@ export const FileUpload = ({
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       layout
-                      className="text-base text-neutral-700 dark:text-neutral-300 truncate max-w-xs"
+                      className="text-base text-neutral-300 dark:text-neutral-300 truncate max-w-xs"
                     >
                       {file.name}
                     </motion.p>
@@ -112,7 +112,7 @@ export const FileUpload = ({
                       layout
                       className="px-1 py-0.5 rounded-md bg-black-100 dark:bg-neutral-800 "
                     >
-                      {file.type}
+                    
                     </motion.p>
 
                     <motion.p

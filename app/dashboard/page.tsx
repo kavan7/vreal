@@ -150,7 +150,7 @@ export default function Dashboard() {
 
       <button
         onClick={handleSignMedia}
-        className="bg-white text-black px-4 py-2 rounded mt-4"
+        className="bg-white  text-black px-4 py-2 rounded mt-4"
       >
         Sign Media
       </button>
