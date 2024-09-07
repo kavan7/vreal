@@ -4,10 +4,11 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import '../globals.css';
 import { FileUpload } from '@/components/ui/file-upload';
-import { IconBriefcase, IconDoorExit, IconMan, IconPhone } from '@tabler/icons-react';
+import { IconBriefcase, IconDoorExit, IconMan, IconPhone, IconSignature } from '@tabler/icons-react';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import Image from 'next/image';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const navItems = [
   {
@@ -124,9 +125,19 @@ export default function Dashboard() {
     if (!notification) return null;
 
     return (
-      <div className={`fixed top-[150px] right-10 bg-${notification.type === 'success' ? 'green' : 'red'}-500 text-white uppercase p-4 rounded`}>
-        {notification.message}
+    
+   
+      <div className={`fixed  top-[150px] right-10 bg-${notification.type === 'success' ? 'green' : 'red'}-500 text-white uppercase p-4 rounded`}>
+          <Alert>
+      <IconSignature className="h-4 w-4" />
+      <AlertTitle>Result</AlertTitle>
+      <AlertDescription>
+      {notification.message}
+      </AlertDescription>
+      
+        </Alert>
       </div>
+     
     );
   };
 
@@ -172,7 +183,7 @@ export default function Dashboard() {
         {signedMediaList.length > 0 ? (
           <ul className="mt-4">
             {signedMediaList.map((media, index) => (
-              <li key={index} className="mb-4">
+              <li key={index} className="mb-4 text-center overflow-y-scroll">
                 <p><strong>File Name:</strong> {media.file_name}</p>
               </li>
             ))}
