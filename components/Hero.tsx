@@ -66,7 +66,7 @@ export function Hero() {
 
   return (
  
-    <div className="max-w-md w-full z-50  rounded-2xl md:rounded-2xl p-4 md:p-8 shadow-input shadow bg-white dark:bg-black">
+    <div className="max-w-md  w-full z-50  rounded-2xl md:rounded-2xl p-4 md:p-8 shadow-input shadow bg-white dark:bg-black">
       <nav><Image src={`/VREAL(2).png`} alt="logo" height={1000} width={1000} /></nav>
       <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent mb-7 h-[1px] w-full" />
 

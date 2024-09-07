@@ -12,9 +12,9 @@ import Image from "next/image";
 export default function Home() {
   return (
     <AuroraBackground>
-    <main className="flex  w-full md:flex-row   flex-col  bg-zinc-950  px-44 ">
+    <main className="flex  w-full md:flex-row   flex-col  bg-zinc-950  md:px-44 px-6 ">
 
-<div className="z-50 ">
+<div className="z-50 w-[400px] items-center ">
      <Hero/>
      </div>
 
