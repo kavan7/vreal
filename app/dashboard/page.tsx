@@ -165,7 +165,7 @@ export default function Dashboard() {
       </div>
 
       {verificationResult && (
-        <div className="mt-4">
+        <div className="mt-20">
           <p>Verification Result: {verificationResult}</p>
         </div>
       )}
