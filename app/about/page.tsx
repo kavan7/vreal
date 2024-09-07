@@ -63,8 +63,7 @@ export default function Dashboard() {
 
 		
 			<h1 className="  font-lightest uppercase   tracking-wider mt-8 px-24">
-				Even the Caesar Cipher was considered to be secure, but will get
-				laughed at if we ever use it as security.	In that lesson, i understood the idea of digital signatures, and decided to take it up a notch
+				The <LinkPreview url='https://en.wikipedia.org/wiki/Caesar_cipher' className='text-white'>Caesar Cipher</LinkPreview> won Julius Caesar battles, but it quickly got taken down. Further more, that lesson taught me digital signatures, and decided to take it up a notch
                 Vreal isn't just for lawyers, or for boring documents. Vreal can help you authenticate media at a time of uncertainty. 
         
 			</h1>
