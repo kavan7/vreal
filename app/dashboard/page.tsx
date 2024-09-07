@@ -7,6 +7,7 @@ import { FileUpload } from '@/components/ui/file-upload';
 import { IconBriefcase, IconDoorExit, IconMan, IconPhone } from '@tabler/icons-react';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
+import Image from 'next/image';
 
 const navItems = [
   {
@@ -40,7 +41,7 @@ export default function Dashboard() {
 
   const handleFileChange = (files: File[]) => {
     if (files.length > 0) {
-      setMediaFile(files[0]); // Assuming only one file needs to be uploaded
+      setMediaFile(files[0]); 
     }
   };
 
@@ -51,8 +52,8 @@ export default function Dashboard() {
     }
 
     const formData = new FormData();
-    formData.append('media_file', mediaFile); // Send the actual file
-    formData.append('username', user?.username || ''); // Send the username
+    formData.append('media_file', mediaFile); 
+    formData.append('username', user?.username || ''); 
 
     if (!user?.username) {
       setNotification({ message: 'Username is missing.', type: 'error' });
@@ -67,7 +68,7 @@ export default function Dashboard() {
       });
       setSignature(response.data.signature);
       setNotification({ message: 'Media signed successfully!', type: 'success' });
-      fetchSignedMedia(user.username); // Refresh the signed media list after signing
+      fetchSignedMedia(user.username); 
     } catch (error) {
       console.error('Error signing media:', error);
       setNotification({ message: 'Error signing media.', type: 'error' });
@@ -81,8 +82,8 @@ export default function Dashboard() {
     }
 
     const formData = new FormData();
-    formData.append('media_file', mediaFile); // Send the actual file
-    formData.append('username', signerUsername); // The signer’s username (the person who signed)
+    formData.append('media_file', mediaFile); 
+    formData.append('username', signerUsername); 
 
     try {
       const response = await axios.post('https://backauth-3hg7.onrender.com/verify_signature', formData, {
@@ -108,15 +109,15 @@ export default function Dashboard() {
     }
   };
 
-  // Notification modal that disappears after 10 seconds
+  
   const NotificationModal = () => {
     useEffect(() => {
       if (notification) {
         const timer = setTimeout(() => {
           setNotification(null);
-        }, 10000); // 10 seconds
+        }, 8000); 
 
-        return () => clearTimeout(timer); // Cleanup the timer
+        return () => clearTimeout(timer); 
       }
     }, [notification]);
 
@@ -132,12 +133,11 @@ export default function Dashboard() {
   return (
     <div className="bg-black text-white h-screen flex flex-col justify-center items-center">
       <FloatingNav navItems={navItems} />
-      <TextGenerateEffect words='Welcome to Vreal' className='text-3xl tracking-widest uppercase' />
+      
 
-      {/* File input for selecting media */}
+     
       <FileUpload onChange={handleFileChange} />
-
-      {/* Button to sign the media */}
+<Image src={'/logo.png'} alt='logo' height={1000} width={1000}/>
       <button
         onClick={handleSignMedia}
         className="bg-white text-black px-4 py-2 rounded mt-4"
@@ -148,7 +148,6 @@ export default function Dashboard() {
       <div className="mt-8">
         <h2 className="text-2xl">Verify Media</h2>
 
-        {/* Input field to enter the signer's username */}
         <input
           type="text"
           placeholder="Enter the signer's username"
@@ -157,7 +156,6 @@ export default function Dashboard() {
           className="mt-4 text-black p-2 rounded"
         />
 
-        {/* Button to verify the media */}
         <button
           onClick={handleVerifyMedia}
           className="bg-white text-black px-4 py-2 rounded mt-4"
@@ -166,7 +164,6 @@ export default function Dashboard() {
         </button>
       </div>
 
-      {/* Display verification result */}
       {verificationResult && (
         <div className="mt-4">
           <p>Verification Result: {verificationResult}</p>
@@ -175,7 +172,7 @@ export default function Dashboard() {
 
       <div className="mt-8">
         <h2 className="text-2xl">Signed Media</h2>
-        {/* Display all signed media for the user */}
+     
         {signedMediaList.length > 0 ? (
           <ul className="mt-4">
             {signedMediaList.map((media, index) => (
@@ -189,7 +186,7 @@ export default function Dashboard() {
         )}
       </div>
 
-      {/* Notification Modal */}
+ 
       <NotificationModal />
     </div>
   );

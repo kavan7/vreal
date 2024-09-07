@@ -24,7 +24,7 @@ export default function Dashboard() {
 
 
        <div className="bg-black text-[#9e9e9e] h-screen flex flex-col justify-center items-center">
-       <FloatingNav navItems={navItems} />
+       <FloatingNav navItems={navItems} className='mb-10'/>
        <TextGenerateEffect words='Vreal | Kavan Abeyratne' className='text-3xl tracking-widest uppercase' />
        <div className='w-1/2'>
 			<h1 className=" font-lightest text-left tracking-wider px-24">
