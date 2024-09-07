@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import '../globals.css';
 import { FileUpload } from '@/components/ui/file-upload';
-import { IconBriefcase, IconDoorExit, IconMan, IconPhone, IconSignature } from '@tabler/icons-react';
+import { IconBriefcase, IconDoorExit, IconFile, IconMan, IconPhone, IconSignature } from '@tabler/icons-react';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import Image from 'next/image';
@@ -178,20 +178,22 @@ export default function Dashboard() {
     
 
       <div className="mt-8">
-        <h2 className="text-2xl">Signed Media</h2>
-     
-        {signedMediaList.length > 0 ? (
-          <ul className="mt-4">
-            {signedMediaList.map((media, index) => (
-              <li key={index} className="mb-4 text-center overflow-y-scroll">
-                <p><strong>File Name:</strong> {media.file_name}</p>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No signed media found.</p>
-        )}
-      </div>
+  <h2 className="text-2xl">Signed Media</h2>
+
+  {signedMediaList.length > 0 ? (
+    <ul className="mt-4 max-h-64 overflow-y-scroll">
+      {signedMediaList.map((media, index) => (
+        <li key={index} className="mb-4">
+          <p>
+            <strong><IconFile/></strong> {media.file_name}
+          </p>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>No signed media found.</p>
+  )}
+</div>
 
  
       <NotificationModal />
