@@ -124,7 +124,7 @@ export default function Dashboard() {
     if (!notification) return null;
 
     return (
-      <div className={`fixed top-10 right-10 bg-${notification.type === 'success' ? 'green' : 'red'}-500 text-white p-4 rounded`}>
+      <div className={`fixed top-[50px] right-10 bg-${notification.type === 'success' ? 'green' : 'red'}-500 text-white p-4 rounded`}>
         {notification.message}
       </div>
     );
