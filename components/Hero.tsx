@@ -50,11 +50,14 @@ export function Hero() {
         username,
         password,
       });
-      if (response.data.message === 'Login successful') {
-        localStorage.setItem('user', JSON.stringify({ username }));
+
+      if (response.status === 200) {
+        // Save the token and user info in localStorage
+        const { token } = response.data;
+        localStorage.setItem('user', JSON.stringify({ username, token }));
         router.push('/dashboard');
       } else {
-        setMessage(response.data.message);
+        setMessage(response.data.message || 'Error logging in.');
       }
     } catch (error) {
       setMessage('Error logging in.');
