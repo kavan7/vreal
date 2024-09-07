@@ -137,7 +137,7 @@ export default function Dashboard() {
 
      
       <FileUpload onChange={handleFileChange} />
-<Image src={'/logo.png'} alt='logo' height={1000} width={1000}/>
+<Image src={'/logonav.png'} alt='logo' height={200} width={200}/>
       <button
         onClick={handleSignMedia}
         className="bg-white text-black px-4 py-2 rounded mt-4"
