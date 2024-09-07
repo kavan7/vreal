@@ -14,7 +14,7 @@ export default function Home() {
     <AuroraBackground>
     <main className="flex  w-full md:flex-row   flex-col  bg-zinc-950  md:px-44 px-6 ">
 
-<div className="z-50 w-[400px] items-center ">
+<div className="z-50 w-[350px] items-center ">
      <Hero/>
      </div>
 
