@@ -182,9 +182,9 @@ export default function Dashboard() {
   {signedMediaList.length > 0 ? (
     <ul className="mt-4 max-h-64 overflow-y-scroll">
       {signedMediaList.map((media, index) => (
-        <li key={index} className="mb-4 flex flex-row">
-          <p>
-            <strong><IconFile3d/></strong> {media.file_name}
+        <li key={index} className="mb-4 ">
+          <p className='flex flex-row'>
+            <strong><IconFile/></strong> {media.file_name}
           </p>
         </li>
       ))}
