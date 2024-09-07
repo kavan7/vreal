@@ -4,15 +4,15 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import '../globals.css';
 import { FileUpload } from '@/components/ui/file-upload';
-import { IconBriefcase, IconMan, IconPhone } from '@tabler/icons-react';
+import { IconBriefcase, IconDoorExit, IconMan, IconPhone } from '@tabler/icons-react';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 
 const navItems = [
   {
-    name: "",
-    id: "services",
-    icon: <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    name: "About",
+    id: "/about",
+    icon: <IconPhone className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
 
 ];
@@ -108,7 +108,18 @@ export default function Dashboard() {
     }
   };
 
+  // Notification modal that disappears after 10 seconds
   const NotificationModal = () => {
+    useEffect(() => {
+      if (notification) {
+        const timer = setTimeout(() => {
+          setNotification(null);
+        }, 10000); // 10 seconds
+
+        return () => clearTimeout(timer); // Cleanup the timer
+      }
+    }, [notification]);
+
     if (!notification) return null;
 
     return (
@@ -178,7 +189,7 @@ export default function Dashboard() {
         )}
       </div>
 
-
+      {/* Notification Modal */}
       <NotificationModal />
     </div>
   );
