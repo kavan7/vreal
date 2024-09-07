@@ -163,7 +163,7 @@ export default function Dashboard() {
           placeholder="Enter the signer's username"
           value={signerUsername}
           onChange={(e) => setSignerUsername(e.target.value)}
-          className="mt-4 text-black p-2 rounded"
+          className="mt-4 text-neutral-400 p-2 rounded"
         />
 
         <button
