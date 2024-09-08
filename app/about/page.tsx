@@ -27,21 +27,47 @@ export default function Dashboard() {
        <FloatingNav navItems={navItems} className='mb-10'/>
          <div className='w-1/2 mt-[100px] overflow-y-scroll'>
 		 <TextGenerateEffect words='Vreal by Kavan Abeyratne' className='text-3xl text-center tracking-widest uppercase' />
-    
+	
+			<hr className='my-3'/>
+			<br/>
 			<h1 className=" font-lightest text-left uppercase tracking-wider px-24">
-				Hey everyone! My name is     <LinkPreview url="https://ca.linkedin.com/in/kavanabeyratne" className='text-white'>       Kavan 
-        </LinkPreview>  and I've
-				decided to give you a brief introduction about how this Vreal came
-				to life.
+				<LinkPreview url='https://vrealauth.com' className='text-white' >Vreal</LinkPreview> is used to authenticate different kinds of media. It ensures the media you are seeing is authorized. It uses digital signature technology to authenticate any type of file. 
+
+<br/><br/>You can sign a file, and distribute to anybody, where users can verify that the signed file has not been tampered with.
+
 			</h1>
 
-			
-			<h1 className="uppercase   tracking-wider mt-3  font-lightest px-24">
+			<br/>
+			<h1 className=" font-lightest text-left uppercase tracking-wider px-24">
+				Vreal also has the potential to eliminate any false media you will see. With the uprising use of AI , Vreal can prevent the malicious exploitations of the technology.
+
+
+			</h1>
+			<br/>
+			<h1 className=" font-lightest text-left uppercase tracking-wider px-24">
+				<strong className='my-3'>USE CASES<br/><br/></strong>
+				<strong>1.</strong> Major news networks and institutions can sign their videos using Vreal to verify their authenticity. This prevents the spread of deepfakes or manipulated content, ensuring that viewers are consuming genuine, untampered media.
+			</h1>
+			<h1 className=" font-lightest text-left uppercase tracking-wider px-24">
+				<br/>
+				<strong>2. </strong> Businesses can use Vreal to sign confidential documents like contracts, legal agreements, or company reports. When these files are distributed, recipients can verify that the documents have not been altered, ensuring secure communication between parties.
+				</h1>
+				<h1 className=" font-lightest text-left uppercase tracking-wider px-24">
+				<br/>
+				<strong>3. </strong> Artists, musicians, and filmmakers can sign their digital creations to protect their intellectual property. This ensures that their work, when shared or distributed online, can be verified as the original piece, protecting them from unauthorized duplication or alteration.
+				</h1>
+				<h1 className=" font-lightest text-left uppercase tracking-wider px-24">
+				<br/>
+				<strong>4. </strong> Educational institutions can sign digital diplomas, certificates, and coursework, allowing employers or other institutions to verify the legitimacy of these documents and prevent fraudulent qualifications.		</h1>
+				<h1 className="uppercase   tracking-wider mt-3  font-lightest px-24">
 				It all started in March, 2024 when i was scrolling through
 				instagram, and got a video about deepfakes and how we should
-				'create safewords with our families' <br />
+				'create safewords with our families' <br /><br/>
 			</h1>
+			
+			
 			<h1 className="  font-lightest   tracking-wider uppercase px-24">
+			<strong className='my-8'>The process.<br/><br/></strong>
 				I was exposed to the idea of Deepfake videos and the potential
 				harms that may arise. The idea that someone out there can send
 				you videos that you have no way to prove if they are indeed sent
