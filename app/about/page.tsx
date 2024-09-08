@@ -25,7 +25,7 @@ export default function Dashboard() {
 
        <div className="bg-black text-[#9e9e9e] h-screen flex flex-col justify-center  items-center">
        <FloatingNav navItems={navItems} className='mb-10'/>
-         <div className='w-1/2 mt-[100px] overflow-y-scroll'>
+         <div className='w-full md:1/2 mt-[100px] overflow-y-scroll'>
 		 <TextGenerateEffect words='Vreal by Kavan Abeyratne' className='text-3xl text-center tracking-widest uppercase' />
 	
 			<hr className='my-3'/>

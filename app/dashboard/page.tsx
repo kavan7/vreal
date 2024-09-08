@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import '../globals.css';
 import { FileUpload } from '@/components/ui/file-upload';
-import { IconBriefcase, IconDoorExit, IconFile, IconFile3d, IconMan, IconPhone, IconSignature } from '@tabler/icons-react';
+import { IconBriefcase, IconDoorExit, IconFile, IconFile3d, IconMan, IconMessage, IconPhone, IconSignature, IconTextCaption } from '@tabler/icons-react';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import Image from 'next/image';
@@ -14,7 +14,7 @@ const navItems = [
   {
     name: "About",
     id: "/about",
-    icon: <IconPhone className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
   },
 
 ];
@@ -145,55 +145,61 @@ export default function Dashboard() {
       <FloatingNav navItems={navItems} />
       
 
-     <div className='mt-20 border-dotted'>
-      <FileUpload onChange={handleFileChange} />
-      </div>
-      <button
-        onClick={handleSignMedia}
-        className="bg-white  text-black px-4 py-2 rounded mt-4"
-      >
-        Sign Media
-      </button>
+      <div className='mt-20 '>
+  <FileUpload onChange={handleFileChange} />
+  <hr/>
+</div>
+<div className='flex flex-col md:flex-row justify-center items-center'>
+  <div className='mt-8 mx-20 md:border border-none rounded-xl p-0 md:p-10 flex flex-col items-center'>
+    <h1 className='text-2xl text-center font-sans'>Sign uploaded file.</h1>
+    <button
+      onClick={handleSignMedia}
+      className="bg-neutral-100 mt-10  text-zinc-950 px-4 py-2 rounded"
+    >
+      Sign Media
+    </button>
+    
+  </div>
 
-      <div className="mt-8">
-        <h2 className="text-2xl font-sans">Verify Media</h2>
+  
+  <div className="mt-8 mx-20 md:border border-none shadow-2xl whitespace-normal rounded-xl p-0 md:p-10 flex flex-col items-center">
+    <h2 className="text-2xl text-center font-sans">Verify Uploaded File</h2>
 
-        <input
-          type="text"
-          placeholder="Enter the signer's username"
-          value={signerUsername}
-          onChange={(e) => setSignerUsername(e.target.value)}
-          className="mt-4 text-neutral-400 p-2 rounded"
-        />
+    <input
+      type="text"
+      placeholder="Enter the signer's username"
+      value={signerUsername}
+      onChange={(e) => setSignerUsername(e.target.value)}
+      className="mt-4 text-neutral-400  p-2  rounded text-center"
+    />
 
-        <button
-          onClick={handleVerifyMedia}
-          className="bg-white text-black px-4 py-2 rounded mt-4"
-        >
-          Verify Media
-        </button>
-      </div>
-
+    <button
+      onClick={handleVerifyMedia}
+      className="bg-white text-black px-4 py-2 rounded-sm mt-4"
+    >
+      Verify Media
+    </button>
+  </div>
+</div>
     
 
-      <div className="mt-6 shadow border-dashed">
-  <h2 className="text-2xl font-sans">Signed Media</h2>
-    <hr/>
+<div className="mt-20 shadow ">
+  <h2 className="text-2xl font-sans text-center">Signed Media</h2>
+  <hr />
   {signedMediaList.length > 0 ? (
-    <ul className="mt-4  mb-4 max-h-64 overflow-y-scroll">
+    <ul className="mt-4 mb-4 max-h-64 overflow-y-scroll  p-4 rounded">
       {signedMediaList.map((media, index) => (
-        <li key={index} className="mb-4 ">
-          <p className='flex flex-row font-sans'>
-            <strong><IconFile/></strong> {media.file_name}
+        <li key={index} className="mb-4">
+          <p className="flex flex-row font-sans">
+            <strong><IconFile /></strong> {media.file_name}
           </p>
         </li>
       ))}
     </ul>
   ) : (
-    <p className='font-sans'> You haven't signed anything.</p>
+    <p className="font-sans">You haven't signed anything.</p>
   )}
 </div>
-
  
       <NotificationModal />
     </div>
