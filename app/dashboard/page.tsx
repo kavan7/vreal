@@ -141,7 +141,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="bg-black text-white font-sans h-screen flex flex-col justify-center overflow-y-scroll items-center">
+    <div className="bg-black text-white font-sans h[100vh] flex flex-col justify-center overflow-y-scroll items-center">
       <FloatingNav navItems={navItems} />
       
 
