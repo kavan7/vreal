@@ -62,7 +62,7 @@ export default function Dashboard() {
     }
 
     try {
-      const response = await axios.post('https://backauth-3hg7.onrender.com/sign_media', formData, {
+      const response = await axios.post('https://web-production-e1c25.up.railway.app/sign_media', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -87,7 +87,7 @@ export default function Dashboard() {
     formData.append('username', signerUsername); 
 
     try {
-      const response = await axios.post('https://backauth-3hg7.onrender.com/verify_signature', formData, {
+      const response = await axios.post('https://web-production-e1c25.up.railway.app/verify_signature', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -102,7 +102,7 @@ export default function Dashboard() {
 
   const fetchSignedMedia = async (username: string) => {
     try {
-      const response = await axios.get(`https://backauth-3hg7.onrender.com/get_signed_media?username=${username}`);
+      const response = await axios.get(`https://web-production-e1c25.up.railway.app/get_signed_media?username=${username}`);
       setSignedMediaList(response.data.signed_media);
     } catch (error) {
       console.error('Error fetching signed media:', error);

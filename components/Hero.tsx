@@ -28,7 +28,7 @@ export function Hero() {
   const handleRegister = async () => {
     try {
       const response = await axios.post(
-        "https://backauth-3hg7.onrender.com/register",
+        "https://web-production-e1c25.up.railway.app/register",
         {
           username,
           email,
@@ -61,7 +61,7 @@ export function Hero() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("https://backauth-3hg7.onrender.com/login", {
+      const response = await axios.post("https://web-production-e1c25.up.railway.app/login", {
         username,
         password,
       });
