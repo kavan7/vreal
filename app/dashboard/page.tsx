@@ -65,7 +65,7 @@ export default function Dashboard() {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(response.data); // Log response for debugging
+      console.log('Sign Media Response:', response.data); // Log response for debugging
       setSignature(response.data.signature);
       setNotification({ message: 'Media signed successfully!', type: 'success' });
       fetchSignedMedia(user.username); 
@@ -91,7 +91,7 @@ export default function Dashboard() {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(response.data); // Log verification result
+      console.log('Verify Media Response:', response.data); // Log verification result
       setVerificationResult(response.data.message);
       setNotification({ message: `Verification Result: ${response.data.message}`, type: 'success' });
     } catch (error) {
@@ -103,10 +103,11 @@ export default function Dashboard() {
   const fetchSignedMedia = async (username: string) => {
     try {
       const response = await axios.get(`https://web-production-e1c25.up.railway.app/get_signed_media?username=${username}`);
-      console.log(response.data); // Log the response structure
+      console.log('Signed Media Response:', response.data); // Log the response structure for debugging
       if (response.data && response.data.signed_media) {
         setSignedMediaList(response.data.signed_media); // Ensure signed_media exists in the response
       } else {
+        setSignedMediaList([]); // Clear list if no media found
         setNotification({ message: 'No signed media found for this user.', type: 'error' });
       }
     } catch (error) {
