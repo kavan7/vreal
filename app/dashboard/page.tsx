@@ -4,9 +4,9 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import '../globals.css';
 import { FileUpload } from '@/components/ui/file-upload';
-import { IconBriefcase, IconFile, IconSignature, IconMessage } from '@tabler/icons-react';
+import { IconFile, IconSignature, IconMessage } from '@tabler/icons-react';
 import { FloatingNav } from '@/components/ui/floating-navbar';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const navItems = [
   {
@@ -104,7 +104,11 @@ export default function Dashboard() {
     try {
       const response = await axios.get(`https://web-production-e1c25.up.railway.app/get_signed_media?username=${username}`);
       console.log(response.data); // Log the response structure
-      setSignedMediaList(response.data.signed_media || response.data); // Adjust this based on the structure
+      if (response.data && response.data.signed_media) {
+        setSignedMediaList(response.data.signed_media); // Ensure signed_media exists in the response
+      } else {
+        setNotification({ message: 'No signed media found for this user.', type: 'error' });
+      }
     } catch (error) {
       console.error('Error fetching signed media:', error);
       setNotification({ message: 'Error fetching signed media.', type: 'error' });
