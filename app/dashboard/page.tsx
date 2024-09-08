@@ -182,20 +182,21 @@ export default function Dashboard() {
   </div>
 </div>
     
-
 <div className="mt-20 shadow ">
   <h2 className="text-2xl font-sans text-center">Signed Media</h2>
   <hr />
   {signedMediaList.length > 0 ? (
-    <ul className="mt-4 mb-4 max-h-64 overflow-y-scroll  p-4 rounded">
-      {signedMediaList.map((media, index) => (
-        <li key={index} className="mb-4">
-          <p className="flex flex-row font-sans">
-            <strong><IconFile /></strong> {media.file_name}
-          </p>
-        </li>
-      ))}
-    </ul>
+    <div className="mt-4 mb-4 overflow-y-scroll max-h-20 w-full p-4 rounded"> {/* Adjust the height */}
+      <ul className="flex flex-col space-y-4"> {/* Add space between items */}
+        {signedMediaList.map((media, index) => (
+          <li key={index} className="mb-4">
+            <p className="flex flex-row font-sans">
+              <strong><IconFile /></strong> {media.file_name}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </div>
   ) : (
     <p className="font-sans">You haven't signed anything.</p>
   )}
