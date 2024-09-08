@@ -24,7 +24,7 @@ export function Hero() {
       handleRegister();
     }
   };
-  
+
   const handleRegister = async () => {
     try {
       const response = await axios.post(
@@ -79,7 +79,7 @@ export function Hero() {
   };
 
   return (
-    <div className="max-w-md  w-full z-50  rounded-2xl md:rounded-2xl p-4 md:p-8 shadow-input shadow bg-white dark:bg-black">
+    <div className="max-w-md w-full z-50 rounded-2xl md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <nav>
         <Image src={`/VREAL(2).png`} alt="logo" height={1000} width={1000} />
       </nav>
