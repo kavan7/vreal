@@ -150,7 +150,7 @@ export default function Dashboard() {
 
       <div className='flex flex-col md:flex-row justify-center items-center'>
         <div className='mt-8 mx-20 md:border border-none rounded-xl p-0 md:p-10 flex flex-col items-center'>
-          <h1 className='text-2xl text-center font-sans'>Sign uploaded file.</h1>
+          <h1 className=' text-center font-sans'>Sign uploaded file.</h1>
           <button
             onClick={handleSignMedia}
             className="bg-neutral-100 mt-10 text-zinc-950 px-4 py-2 rounded"
@@ -160,7 +160,7 @@ export default function Dashboard() {
         </div>
 
         <div className="mt-8 mx-20 md:border border-none shadow-2xl rounded-xl p-0 md:p-10 flex flex-col items-center">
-          <h2 className="text-2xl text-center font-sans">Verify Uploaded File</h2>
+          <h2 className=" text-center font-sans">Verify Uploaded File</h2>
 
           <input
             type="text"
@@ -183,7 +183,7 @@ export default function Dashboard() {
         <h2 className="text-2xl font-sans text-center">Signed Media</h2>
         <hr />
         {signedMediaList.length > 0 ? (
-          <div className="mt-4 mb-4 overflow-y-scroll max-h-[300px] w-full p-4 rounded"> {/* Adjust the height */}
+          <div className="mt-4 mb-4 overflow-y-scroll max-h-20 md:max-h-[300px] w-full p-4 rounded"> {/* Adjust the height */}
             <ul className="flex flex-col space-y-4"> {/* Add space between items */}
               {signedMediaList.map((media, index) => (
                 <li key={index} className="mb-4">
