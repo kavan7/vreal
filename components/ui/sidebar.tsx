@@ -115,7 +115,7 @@ export const MobileSidebar = ({
     <>
       <div
         className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
+          "h-10 px-4 py-4 flex flex-row md:hidden  items-center z-50 justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
         )}
         {...props}
       >
@@ -128,9 +128,9 @@ export const MobileSidebar = ({
         <AnimatePresence>
           {open && (
             <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
+              initial={{ x: "-100%", opacity: 1 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-100%", opacity: 0 }}
+              exit={{ x: "-100%", opacity: 1 }}
               transition={{
                 duration: 0.3,
                 ease: "easeInOut",
@@ -146,7 +146,9 @@ export const MobileSidebar = ({
               >
                 <IconX />
               </div>
+              <div onClick={() => setOpen(!open)}>
               {children}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
