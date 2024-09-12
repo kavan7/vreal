@@ -417,7 +417,7 @@ export function GlobeDemo() {
           Vreal Authentication 
           </h2>
           <p className="text-center uppercase  tracking-wider md:text-lg font-normal text-neutral-400 overflow-visible max-w-md mt-2 mx-auto">
-          Stay protected from <LinkPreview url="https://drive.google.com/file/d/15pw4aUJa1a3n_m-DFwX94ZXF2QGiDaHU/view?usp=sharing" className="text-white">deceptive content</LinkPreview>
+          Stay protected from <LinkPreview url="https://vrealauth.com/about" className="text-white">deceptive content</LinkPreview>
           
           </p>
           
