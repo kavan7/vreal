@@ -47,7 +47,7 @@ export function Hero() {
       if (response.status === 201) {
         // Proceed to verification step
         setIsVerifying(true);
-        setMessage("Verification code sent to your phone. Please enter the code to complete registration.");
+        setMessage("");
       } else {
         setMessage(response.data.message || "Error registering user.");
       }
