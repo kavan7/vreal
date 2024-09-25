@@ -54,7 +54,7 @@ const links = [
   },
   {
     label: "Logout",
-    href: "#",
+    href: "/",
     icon: (
       <IconArrowLeft className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
     ),
