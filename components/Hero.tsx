@@ -12,7 +12,7 @@ export function Hero() {
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");  
   const [password, setPassword] = useState<string>("");
-  const [phoneNumber, setPhoneNumber] = useState<string>(""); // State for phone number
+  const [phoneNumber, setPhoneNumber] = useState<string>("+1"); // State for phone number
   const [verificationCode, setVerificationCode] = useState<string>(""); // State for verification code
   const [message, setMessage] = useState<string | null>(null);
   const [isLogin, setIsLogin] = useState<boolean>(true);
