@@ -21,7 +21,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { CardSpotlight } from '@/components/ui/card-spotlight';
-import { WorldMap } from '@/components/ui/world-map';
+
 import { BackgroundGradient } from '@/components/ui/background-gradient';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 
