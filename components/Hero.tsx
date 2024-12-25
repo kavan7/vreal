@@ -187,15 +187,16 @@ export function Hero() {
           disabled={isLoading}
         >
           {isLoading ? "Loading..." : authStep === "login" ? "Login" : "Sign up"}
+          
         </button>
-
-        <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-
         {message && (
-          <p className="uppercase tracking-wider text-[#ff3d36] font-bold mt-4">
-            {message}
+          <p className=" tracking-wider   mt-4">
+           Error:  {message}
           </p>
         )}
+        <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+
+   
 
         <div className="mt-4">
           <p className="text-neutral-600 dark:text-neutral-300">
