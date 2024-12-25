@@ -21,6 +21,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { CardSpotlight } from '@/components/ui/card-spotlight';
+import { WorldMap } from '@/components/ui/world-map';
 
 // Links for sidebar
 const links = [
@@ -192,7 +193,7 @@ export default function Dashboard() {
   
   // Responsive adjustments
   return (
-    <div className='flex flex-col lg:flex-row items-center h-screen  w-full bg-zinc-950'>
+    <div className='flex flex-col lg:flex-row items-center h-screen  w-full bg-zinc-500'>
      
       <Sidebar open={open} setOpen={setOpen}>
         <SidebarBody className="justify-between z-auto  gap-10">
@@ -225,22 +226,23 @@ export default function Dashboard() {
         </SidebarBody>
       </Sidebar>
 
-      <div className="bg-zinc-950 text-neutral-300 font-sans h-screen lg:h-screen w-full lg:w-full flex flex-col justify-center overflow-y-scroll items-center">
-    
+      <div className="bg-zinc-900 text-neutral-300 font-sans h-screen lg:h-screen w-full lg:w-full flex flex-col justify-center overflow-y-scroll items-center">
+    <h1 className='text-[50px]'>Vreal Authentication</h1>
+    <h3 className='uppercase border-spacing-3 mt-3'>Confront deceptive content.</h3>
 
         <div className='mt-20 w-full px-4 lg:px-0'>
       
         </div>
 
         {activeTab === 'sign-media' && (
-          
+     
           <div className='flex flex-col lg:flex-col justify-center items-center w-full'>
-              <Image src={'/herologo.png'} alt='herologo' className='flex flex-row items-center z-0 ' width={800} height={0} />
-              <h1 className='text-white text-3xl font-semibold font-mono'>SIGN YOUR FILES</h1>
+              
+          
                <FileUpload onChange={handleFileChange} />
                <hr/>
             <div className='mt-8 mx-20 md:border border-none rounded-xl p-0 md:p-10 flex flex-col items-center'>
-              <h1 className=' text-center font-mono'>Sign uploaded file.</h1>
+              <h1 className=' text-center '>Sign uploaded file.</h1>
               <button
                 onClick={handleSignMedia}
                 className="bg-neutral-100 mt-10 text-zinc-950 px-4 py-2 rounded"
@@ -309,7 +311,40 @@ export default function Dashboard() {
           </div>
 
         )}
-
+<WorldMap
+        dots={[
+          {
+            start: {
+              lat: 64.2008,
+              lng: -149.4937,
+            }, // Alaska (Fairbanks)
+            end: {
+              lat: 34.0522,
+              lng: -118.2437,
+            }, // Los Angeles
+          },
+          {
+            start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)
+            end: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+          },
+          {
+            start: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+            end: { lat: 38.7223, lng: -9.1393 }, // Lisbon
+          },
+          {
+            start: { lat: 51.5074, lng: -0.1278 }, // London
+            end: { lat: 28.6139, lng: 77.209 }, // New Delhi
+          },
+          {
+            start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+            end: { lat: 43.1332, lng: 131.9113 }, // Vladivostok
+          },
+          {
+            start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+            end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+          },
+        ]}
+      />
         <NotificationModal />
       </div>
     </div>
