@@ -14,8 +14,7 @@ export default function Home() {
       name: "Home",
       id: "/dashboard",
       icon: <IconPhone className="h-4 w-4 text-white" />,
-    },
-  
+    }
   ];
   return (
     <main className="">
