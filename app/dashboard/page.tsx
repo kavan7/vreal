@@ -230,8 +230,8 @@ export default function Dashboard() {
         </SidebarBody>
       </Sidebar>
 
-      <div className=" bg-transparent text-neutral-300 font-sans h-screen lg:h-screen w-full lg:w-full flex z-10 flex-col justify-center overflow-y-scroll items-center">
-    <h1 className='text-[50px]'>Vreal Authentication</h1>
+      <div className=" bg-transparent text-neutral-300 text-center  font-sans h-screen lg:h-screen w-full lg:w-full flex z-10 flex-col justify-center overflow-y-scroll items-center">
+    <h1 className='text-[50px] text-center '>Vreal Authentication</h1>
     <h3 className='uppercase border-spacing-3 mt-3'>Confront deceptive content.</h3>
 
         <div className='mt-20 w-full px-4 lg:px-0'>
@@ -279,7 +279,7 @@ export default function Dashboard() {
 
               <button
                 onClick={handleVerifyMedia}
-                className="bg-white border  text-neutral-300 px-4 py-2 rounded-sm mt-4"
+                className="bg-white border  text-neutral-900 px-4 py-2 rounded-sm mt-4"
               >
                 Verify Media
               </button>
@@ -288,9 +288,9 @@ export default function Dashboard() {
         )}
 
         {activeTab === 'signed-media' && (
-          <div className="mt-20 shadow w-full items-center h-screen lg:w-auto">
-              <Image src={'/herologo.png'} alt='herologo' className='flex flex-row items-center' width={500} height={500} />
-              <h1 className='text-white text-3xl font-semibold text-center font-mono mb-3'>VERIFY YOUR FILES</h1>
+          <div className="flex flex-col lg:flex-col justify-center items-center ">
+             
+           
            
               <CardSpotlight className="h-full items-center w-full">
               <p className="text-xl font-bold items-center relative z-20 mt-2 text-center underline underline-offset-6 text-white">Signed Media</p>
