@@ -18,7 +18,9 @@ export default function Home() {
   ];
   return (
     <main className="">
-   <Home1/>
+
+
+      <Home1/>
 
 
  
