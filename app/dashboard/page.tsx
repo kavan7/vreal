@@ -22,10 +22,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { CardSpotlight } from '@/components/ui/card-spotlight';
 
-import { BackgroundGradient } from '@/components/ui/background-gradient';
-import { BackgroundBeams } from '@/components/ui/background-beams';
-import { AuroraBackground } from '@/components/ui/Aurora';
-
 // Links for sidebar
 const links = [
   {
@@ -196,11 +192,10 @@ export default function Dashboard() {
   
   // Responsive adjustments
   return (
-    <AuroraBackground>
-    <div className='flex flex-col lg:flex-row items-center h-screen  w-full '>
-       
+    <div className='flex flex-col lg:flex-row items-center h-screen  w-full bg-zinc-950'>
+     
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between z-10 gap-10">
+        <SidebarBody className="justify-between z-auto  gap-10">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
             <div className="mt-8 flex flex-col gap-2">
               <Image src={'/favicon.ico'} alt='logo' width={40} height={40}/>
@@ -230,19 +225,19 @@ export default function Dashboard() {
         </SidebarBody>
       </Sidebar>
 
-      <div className=" bg-transparent text-neutral-300 text-center  font-sans h-screen lg:h-screen w-full lg:w-full flex z-10 flex-col justify-center overflow-y-scroll items-center">
-    <h1 className='text-[50px] text-center '>Vreal Authentication</h1>
-    <h3 className='uppercase border-spacing-3 mt-3'>Confront deceptive content.</h3>
+      <div className="bg-zinc-950 text-neutral-300 font-sans h-screen lg:h-screen w-full lg:w-full flex flex-col justify-center overflow-y-scroll items-center">
+    
 
-        <div className='mt-20 w-full px-4 lg:px-0'>
+        <div className='mt-0 w-full px-4 lg:px-0'>
       
         </div>
-       
+
         {activeTab === 'sign-media' && (
-         
+          
           <div className='flex flex-col lg:flex-col justify-center items-center w-full'>
-             
-    
+            
+              <h1 className='text-white text-3xl font-semibold '>SIGN YOUR FILES</h1>
+              <h2 className='text-neutral-300 text-1xl font-light mt-3'>Upload your media files to sign.</h2>
                <FileUpload onChange={handleFileChange} />
                <hr/>
             <div className='mt-8 mx-20 md:border border-none rounded-xl p-0 md:p-10 flex flex-col items-center'>
@@ -255,18 +250,17 @@ export default function Dashboard() {
               </button>
             </div>
           </div>
-         
         )}
 
         {activeTab === 'verify-media' && (
           <div className='flex flex-col lg:flex-col justify-center items-center w-full'>
-           
-  
-         
+              <Image src={'/herologo.png'} alt='herologo' className='flex flex-row items-center' width={500} height={500} />
+              <h1 className='text-white text-3xl font-semibold font-mono mb-3'>VERIFY YOUR FILES</h1>
+              <div className='border border-white '>
                <FileUpload onChange={handleFileChange} />
-          
+               </div>
                <hr/>
-            <div className="mt-8 mx-20 shadow-2xl rounded-xl p-0 md:p-10 flex flex-col items-center">
+            <div className="mt-8 mx-20 md:border border-none shadow-2xl rounded-xl p-0 md:p-10 flex flex-col items-center">
              
 
               <input
@@ -274,12 +268,12 @@ export default function Dashboard() {
                 placeholder="Enter the signer's username"
                 value={signerUsername}
                 onChange={(e) => setSignerUsername(e.target.value)}
-                className="mt-4 text-neutral-400 bg-white  border p-2 rounded text-center"
+                className="mt-4 text-neutral-400 bg-zinc-900 border-white border p-2 rounded text-center"
               />
 
               <button
                 onClick={handleVerifyMedia}
-                className="bg-white border  text-neutral-900 px-4 py-2 rounded-sm mt-4"
+                className="bg-black border border-white  text-neutral-300 px-4 py-2 rounded-sm mt-4"
               >
                 Verify Media
               </button>
@@ -288,9 +282,9 @@ export default function Dashboard() {
         )}
 
         {activeTab === 'signed-media' && (
-          <div className="flex flex-col lg:flex-col justify-center items-center ">
-             
-           
+          <div className="mt-20 shadow w-full items-center h-screen lg:w-auto">
+              <Image src={'/herologo.png'} alt='herologo' className='flex flex-row items-center' width={500} height={500} />
+              <h1 className='text-white text-3xl font-semibold text-center font-mono mb-3'>VERIFY YOUR FILES</h1>
            
               <CardSpotlight className="h-full items-center w-full">
               <p className="text-xl font-bold items-center relative z-20 mt-2 text-center underline underline-offset-6 text-white">Signed Media</p>
@@ -316,11 +310,9 @@ export default function Dashboard() {
           </div>
 
         )}
+
         <NotificationModal />
       </div>
-     
     </div>
-    </AuroraBackground>
-    
   );
 }

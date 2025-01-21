@@ -9,13 +9,7 @@ import { LoopPingPong } from "three";
 import Home1 from "@/components/mainhero";
 import Home2 from "@/components/maingero-two";
 export default function Home() {
-  const navItems = [
-    {
-      name: "Home",
-      id: "/dashboard",
-      icon: <IconPhone className="h-4 w-4 text-white" />,
-    }
-  ];
+ 
   return (
     <main className="">
 
