@@ -37,7 +37,7 @@ export function Hero() {
   const handleRegister = async () => {
     try {
       const response = await axios.post(
-        "https://web-production-e1c25.up.railway.app/register",
+        "https://backauth-3hg7.onrender.com/register",
         {
           username,
           email,
@@ -60,7 +60,7 @@ export function Hero() {
   const verifyCode = async () => {
     try {
       const response = await axios.post(
-        "https://web-production-e1c25.up.railway.app/verify_phone",
+        "https://backauth-3hg7.onrender.com/verify_phone",
         {
           phone_number: phoneNumber,
           code: verificationCode,
@@ -80,7 +80,7 @@ export function Hero() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("https://web-production-e1c25.up.railway.app/login", {
+      const response = await axios.post("https://backauth-3hg7.onrender.com/login", {
         username,
         password,
       });
