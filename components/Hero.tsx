@@ -7,7 +7,7 @@ import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-const BASE_API_URL: string = process.env.NEXT_PUBLIC_API_URL || "https://backauth-3hg7.onrender.com";
+const BASE_API_URL: string = process.env.NEXT_PUBLIC_API_URL || "web-production-988b6.up.railway.app";
 
 type AuthStep = "login" | "register";
 
