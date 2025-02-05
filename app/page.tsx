@@ -1,0 +1,29 @@
+"use client";
+
+import { FloatingNav } from "@/components/ui/floating-navbar";
+import { IconPhone } from "@tabler/icons-react";
+import Link from "next/link";
+import { motion } from 'framer-motion'
+//@ts-ignore
+import { LoopPingPong } from "three";
+import Home1 from "@/components/mainhero";
+import Home2 from "@/components/maingero-two";
+export default function Home() {
+  const navItems = [
+    {
+      name: "Home",
+      id: "/dashboard",
+      icon: <IconPhone className="h-4 w-4 text-white" />,
+    }
+  ];
+  return (
+    <main className="">
+
+
+      <Home1/>
+
+
+ 
+  </main>
+  );
+}
